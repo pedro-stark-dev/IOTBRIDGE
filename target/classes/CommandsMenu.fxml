@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f0f0f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+    <center>
+        <!-- Container principal -->
+        <VBox spacing="20.0" style="-fx-background-color: #1a1a1a; -fx-background-radius: 10; -fx-border-color: #333; -fx-border-width: 1; -fx-border-radius: 10;" alignment="TOP_CENTER">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <!-- Header -->
+            <VBox alignment="CENTER" spacing="5.0">
+                <Label style="-fx-text-fill: #00d4ff; -fx-font-weight: bold; -fx-font-size: 20;" text="COMANDOS PRONTOS" />
+                <Label style="-fx-text-fill: #666; -fx-font-size: 11;" text="Gerencie e envie comandos predefinidos" />
+                <Separator style="-fx-background-color: #333; -fx-pref-width: 300;" />
+            </VBox>
+
+            <!-- Área de comandos -->
+            <HBox spacing="15.0" VBox.vgrow="ALWAYS">
+                <!-- Lista de comandos -->
+                <VBox spacing="10.0" prefWidth="250.0">
+                    <Label style="-fx-text-fill: #cccccc; -fx-font-size: 12; -fx-font-weight: bold;" text="COMANDOS SALVOS" />
+
+                    <ListView style="
+                        -fx-background-color: #0f0f0f;
+                        -fx-border-color: #333;
+                        -fx-border-width: 1;
+                        -fx-border-radius: 5;
+                        -fx-background-radius: 5;
+                    " VBox.vgrow="ALWAYS">
+                    </ListView>
+
+                    <HBox spacing="10.0" alignment="CENTER">
+                        <Button style="
+                            -fx-background-color: #00d4ff;
+                            -fx-text-fill: #000000;
+                            -fx-background-radius: 5;
+                            -fx-padding: 8 12;
+                            -fx-font-size: 11;
+                            -fx-font-weight: bold;
+                        " text="NOVO" />
+
+                        <Button style="
+                            -fx-background-color: #333;
+                            -fx-text-fill: #ccc;
+                            -fx-background-radius: 5;
+                            -fx-padding: 8 12;
+                            -fx-font-size: 11;
+                        " text="REMOVER" />
+                    </HBox>
+                </VBox>
+
+                <!-- Editor de comando -->
+                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                    <Label style="-fx-text-fill: #cccccc; -fx-font-size: 12; -fx-font-weight: bold;" text="EDITOR DE COMANDO" />
+
+                    <VBox spacing="8.0">
+                        <Label style="-fx-text-fill: #cccccc; -fx-font-size: 11;" text="NOME DO COMANDO" />
+                        <TextField style="
+                            -fx-background-color: #2a2a2a;
+                            -fx-text-fill: white;
+                            -fx-background-radius: 5;
+                            -fx-border-color: #333;
+                            -fx-border-width: 1;
+                            -fx-border-radius: 5;
+                            -fx-pref-height: 35;
+                            -fx-font-size: 12;
+                            -fx-padding: 0 10;
+                        " promptText="Digite um nome para o comando" />
+                    </VBox>
+
+                    <VBox spacing="8.0" VBox.vgrow="ALWAYS">
+                        <Label style="-fx-text-fill: #cccccc; -fx-font-size: 11;" text="COMANDO" />
+                        <TextArea style="
+                            -fx-background-color: #2a2a2a;
+                            -fx-text-fill: white;
+                            -fx-font-family: 'Monospaced', 'Consolas';
+                            -fx-font-size: 12;
+                            -fx-background-radius: 5;
+                            -fx-border-color: #333;
+                            -fx-border-width: 1;
+                            -fx-border-radius: 5;
+                            -fx-control-inner-background: #2a2a2a;
+                        " VBox.vgrow="ALWAYS" promptText="Digite o comando aqui..." />
+                    </VBox>
+
+                    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                        <Button style="
+                            -fx-background-color: #333;
+                            -fx-text-fill: #ccc;
+                            -fx-background-radius: 5;
+                            -fx-padding: 8 15;
+                            -fx-font-size: 11;
+                        " text="SALVAR" />
+
+                        <Button style="
+                            -fx-background-color: #00d4ff;
+                            -fx-text-fill: #000000;
+                            -fx-background-radius: 5;
+                            -fx-padding: 8 15;
+                            -fx-font-size: 11;
+                            -fx-font-weight: bold;
+                        " text="ENVIAR COMANDO" />
+                    </HBox>
+                </VBox>
+            </HBox>
+
+            <!-- Barra de status -->
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+                <Label style="-fx-text-fill: #666; -fx-font-size: 10;" text="Total de comandos: 0" />
+                <HBox HBox.hgrow="ALWAYS" />
+                <Label style="-fx-text-fill: #666; -fx-font-size: 10;" text="Pronto" />
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

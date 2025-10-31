@@ -1,0 +1,14 @@
+com\stark\duckmodbus\models\HistoricModel.class
+com\stark\duckmodbus\Main.class
+com\stark\duckmodbus\controllers\CommandsMenuController.class
+com\stark\duckmodbus\models\SerialModel.class
+com\stark\duckmodbus\services\SerialService.class
+com\stark\duckmodbus\controllers\ConnectionMenuController.class
+com\stark\duckmodbus\models\ConfigurationModel.class
+com\stark\duckmodbus\services\CommandService.class
+com\stark\duckmodbus\controllers\HistoricMenuController.class
+com\stark\duckmodbus\services\SaveConfigService.class
+com\stark\duckmodbus\services\HistoricService.class
+com\stark\duckmodbus\controllers\ConfigurationMenuController.class
+com\stark\duckmodbus\controllers\MainController.class
+com\stark\duckmodbus\models\CommandsModel.class

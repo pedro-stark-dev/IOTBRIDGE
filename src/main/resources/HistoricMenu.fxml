@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f0f0f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+    <center>
+        <!-- Container principal -->
+        <VBox spacing="20.0" style="-fx-background-color: #1a1a1a; -fx-background-radius: 10; -fx-border-color: #333; -fx-border-width: 1; -fx-border-radius: 10;" alignment="TOP_CENTER">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <!-- Header -->
+            <VBox alignment="CENTER" spacing="5.0">
+                <Label style="-fx-text-fill: #00d4ff; -fx-font-weight: bold; -fx-font-size: 20;" text="HISTÓRICO" />
+                <Label style="-fx-text-fill: #666; -fx-font-size: 11;" text="Registro de comunicação serial" />
+                <Separator style="-fx-background-color: #333; -fx-pref-width: 300;" />
+            </VBox>
+
+            <!-- Tabela de histórico -->
+            <TableView style="
+                -fx-background-color: #0f0f0f;
+                -fx-border-color: #333;
+                -fx-border-width: 1;
+                -fx-border-radius: 5;
+                -fx-background-radius: 5;
+            " VBox.vgrow="ALWAYS">
+                <columns>
+                    <!-- Coluna Data -->
+                    <TableColumn prefWidth="100.0" text="DATA" style="
+                        -fx-background-color: #2a2a2a;
+                        -fx-text-fill: #00d4ff;
+                        -fx-font-weight: bold;
+                        -fx-font-size: 11;
+                    ">
+                        <graphic>
+                            <Label style="-fx-text-fill: #00d4ff; -fx-font-weight: bold; -fx-font-size: 11;" text="DATA" />
+                        </graphic>
+                    </TableColumn>
+
+                    <!-- Coluna Envio -->
+                    <TableColumn prefWidth="200.0" text="ENVIO" style="
+                        -fx-background-color: #2a2a2a;
+                        -fx-text-fill: #00d4ff;
+                        -fx-font-weight: bold;
+                        -fx-font-size: 11;
+                    ">
+                        <graphic>
+                            <Label style="-fx-text-fill: #00d4ff; -fx-font-weight: bold; -fx-font-size: 11;" text="ENVIO" />
+                        </graphic>
+                    </TableColumn>
+
+                    <!-- Coluna Resposta -->
+                    <TableColumn prefWidth="200.0" text="RESPOSTA" style="
+                        -fx-background-color: #2a2a2a;
+                        -fx-text-fill: #00d4ff;
+                        -fx-font-weight: bold;
+                        -fx-font-size: 11;
+                    ">
+                        <graphic>
+                            <Label style="-fx-text-fill: #00d4ff; -fx-font-weight: bold; -fx-font-size: 11;" text="RESPOSTA" />
+                        </graphic>
+                    </TableColumn>
+
+                    <!-- Coluna Tamanho -->
+                    <TableColumn prefWidth="80.0" text="TAMANHO" style="
+                        -fx-background-color: #2a2a2a;
+                        -fx-text-fill: #00d4ff;
+                        -fx-font-weight: bold;
+                        -fx-font-size: 11;
+                    ">
+                        <graphic>
+                            <Label style="-fx-text-fill: #00d4ff; -fx-font-weight: bold; -fx-font-size: 11;" text="TAMANHO" />
+                        </graphic>
+                    </TableColumn>
+                </columns>
+
+                <!-- Estilo das células -->
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+
+            <!-- Barra de ferramentas -->
+            <HBox spacing="10.0" alignment="CENTER">
+                <Button style="
+                    -fx-background-color: #333;
+                    -fx-text-fill: #ccc;
+                    -fx-background-radius: 5;
+                    -fx-padding: 8 15;
+                    -fx-font-size: 11;
+                " text="LIMPAR HISTÓRICO" />
+
+                <Button style="
+                    -fx-background-color: #333;
+                    -fx-text-fill: #ccc;
+                    -fx-background-radius: 5;
+                    -fx-padding: 8 15;
+                    -fx-font-size: 11;
+                " text="EXPORTAR CSV" />
+
+                <Button style="
+                    -fx-background-color: #333;
+                    -fx-text-fill: #ccc;
+                    -fx-background-radius: 5;
+                    -fx-padding: 8 15;
+                    -fx-font-size: 11;
+                " text="COPIAR SELECIONADO" />
+
+                <HBox HBox.hgrow="ALWAYS" />
+
+                <Label style="-fx-text-fill: #666; -fx-font-size: 10;" text="Total de registros: 0" />
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f0f0f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+    <center>
+        <!-- Container principal -->
+        <VBox spacing="30.0" style="-fx-background-color: #1a1a1a; -fx-background-radius: 15; -fx-border-color: #333; -fx-border-width: 1; -fx-border-radius: 15;" alignment="TOP_CENTER" prefWidth="500.0">
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            </padding>
+
+            <!-- Header -->
+            <VBox alignment="CENTER" spacing="8.0">
+                <Label style="-fx-text-fill: #00d4ff; -fx-font-weight: bold; -fx-font-size: 24;" text="CONFIGURAÇÕES" />
+                <Separator style="-fx-background-color: #333; -fx-pref-width: 200;" />
+            </VBox>
+
+            <!-- Opções de Toggle -->
+            <VBox spacing="20.0" prefWidth="400.0" alignment="CENTER_LEFT">
+                <!-- Auto Check Connection -->
+                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                    <ToggleButton style="
+                        -fx-background-color: #2a2a2a;
+                        -fx-text-fill: #cccccc;
+                        -fx-background-radius: 8;
+                        -fx-border-color: #333;
+                        -fx-border-width: 1;
+                        -fx-border-radius: 8;
+                        -fx-pref-height: 50;
+                        -fx-pref-width: 200;
+                        -fx-font-size: 13;
+                        -fx-font-weight: bold;
+                    " text="Auto Check Connection" />
+                    <Label style="-fx-text-fill: #666; -fx-font-size: 11;" text="Verifica conexão automaticamente" />
+                </HBox>
+
+                <!-- Auto Calculate CRC -->
+                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                    <ToggleButton style="
+                        -fx-background-color: #2a2a2a;
+                        -fx-text-fill: #cccccc;
+                        -fx-background-radius: 8;
+                        -fx-border-color: #333;
+                        -fx-border-width: 1;
+                        -fx-border-radius: 8;
+                        -fx-pref-height: 50;
+                        -fx-pref-width: 200;
+                        -fx-font-size: 13;
+                        -fx-font-weight: bold;
+                    " text="Auto Calculate CRC" />
+                    <Label style="-fx-text-fill: #666; -fx-font-size: 11;" text="Calcula CRC automaticamente" />
+                </HBox>
+
+                <!-- Auto Send -->
+                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                    <ToggleButton style="
+                        -fx-background-color: #2a2a2a;
+                        -fx-text-fill: #cccccc;
+                        -fx-background-radius: 8;
+                        -fx-border-color: #333;
+                        -fx-border-width: 1;
+                        -fx-border-radius: 8;
+                        -fx-pref-height: 50;
+                        -fx-pref-width: 200;
+                        -fx-font-size: 13;
+                        -fx-font-weight: bold;
+                    " text="Auto Send" />
+                    <Label style="-fx-text-fill: #666; -fx-font-size: 11;" text="Envio automático de dados" />
+                </HBox>
+            </VBox>
+
+            <!-- Configuração de Delay -->
+            <VBox spacing="10.0" prefWidth="400.0" alignment="CENTER_LEFT">
+                <Label style="-fx-text-fill: #cccccc; -fx-font-size: 13; -fx-font-weight: bold;" text="AUTO SEND DELAY" />
+                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                    <TextField style="
+                        -fx-background-color: #2a2a2a;
+                        -fx-text-fill: white;
+                        -fx-background-radius: 6;
+                        -fx-border-color: #333;
+                        -fx-border-width: 1;
+                        -fx-border-radius: 6;
+                        -fx-pref-height: 40;
+                        -fx-pref-width: 150;
+                        -fx-font-size: 13;
+                        -fx-padding: 0 10;
+                    " promptText="ms" />
+                    <Label style="-fx-text-fill: #666; -fx-font-size: 11;" text="Tempo em milissegundos entre envios automáticos" />
+                </HBox>
+            </VBox>
+
+            <!-- Botões de ação -->
+            <HBox spacing="20.0" alignment="CENTER">
+                <Button style="
+                    -fx-background-color: #00d4ff;
+                    -fx-text-fill: #000000;
+                    -fx-background-radius: 8;
+                    -fx-padding: 12 30;
+                    -fx-font-weight: bold;
+                    -fx-font-size: 13;
+                " text="SALVAR" />
+
+                <Button style="
+                    -fx-background-color: #2a2a2a;
+                    -fx-text-fill: #cccccc;
+                    -fx-background-radius: 8;
+                    -fx-padding: 12 30;
+                    -fx-font-size: 13;
+                    -fx-border-color: #666;
+                    -fx-border-width: 1;
+                    -fx-border-radius: 8;
+                " text="CANCELAR" />
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>
