@@ -1,5 +1,7 @@
 package com.stark.duckmodbus.controllers;
 
+import com.stark.duckmodbus.models.HistoricModel;
+import com.stark.duckmodbus.services.HistoricService;
 import com.stark.duckmodbus.services.SerialService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -11,6 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.logging.Handler;
@@ -25,7 +28,7 @@ public class MainController {
     private Stage commandsStage;
     private Stage historicStage;
     private Stage configurationStage;
-
+    private volatile String lastSentRequest = "";
     @FXML private Label statusText;
     @FXML private Rectangle statusLed;
     @FXML private TextArea receiver;
@@ -103,15 +106,39 @@ public class MainController {
         serialThread = new Thread(() -> {
             logger.info("Iniciando thread de leitura serial...");
             SerialService serial = SerialService.getInstance();
+            StringBuilder buffer = new StringBuilder(); // Acumula fragmentos
 
             while (running) {
                 try {
                     if (serial != null && serial.isConnected()) {
-                        String data = serial.read();
+                        String data = serial.read(); // Pode ser parcial
                         if (data != null && !data.isEmpty()) {
-                            final String output = data;
-                            Platform.runLater(() -> receiver.appendText(output));
-                            logger.fine("Recebido: " + output.replace("\n", "\\n"));
+                            buffer.append(data);
+
+                            // Supondo que cada mensagem termina com '\n'
+                            int index;
+                            while ((index = buffer.indexOf("\n")) != -1) {
+                                String completeMessage = buffer.substring(0, index).trim();
+                                buffer.delete(0, index + 1); // Remove mensagem processada
+
+                                String finalMessage = completeMessage;
+                                Platform.runLater(() -> receiver.appendText(finalMessage + "\n"));
+
+                                // Salvar histórico
+                                try {
+                                    HistoricModel model = new HistoricModel(
+                                            lastSentRequest,
+                                            finalMessage,
+                                            LocalDate.now(),
+                                            lastSentRequest.length()
+                                    );
+                                    HistoricService.saveHistoric(model);
+                                } catch (Exception e) {
+                                    logger.warning("Falha ao salvar histórico: " + e.getMessage());
+                                }
+
+                                logger.fine("Recebido: " + finalMessage.replace("\n", "\\n"));
+                            }
                         }
                     }
                     Thread.sleep(50);
@@ -130,6 +157,7 @@ public class MainController {
         serialThread.start();
     }
 
+
     // -----------------------------
     //         ENVIO SERIAL
     // -----------------------------
@@ -141,6 +169,7 @@ public class MainController {
         if (text == null || text.trim().isEmpty()) return;
 
         final String msg = text.trim();
+        lastSentRequest = msg;
         SerialService serial = SerialService.getInstance();
 
         if (serial == null || !serial.isConnected()) {
@@ -178,7 +207,6 @@ public class MainController {
             statusLed.setStyle("-fx-fill: " + color + ";");
         });
     }
-
     // -----------------------------
     //       ENCERRAMENTO LIMPO
     // -----------------------------
@@ -205,6 +233,13 @@ public class MainController {
         logger.info("MainController parado com segurança.");
     }
     public void clean(){
-
+        receiver.setText("");
+        logger.info("Receiver terminal cleared");
+    }
+    public void export(){
+        logger.info("export()");
+    }
+    public void pause(){
+        logger.info("pause()");
     }
 }

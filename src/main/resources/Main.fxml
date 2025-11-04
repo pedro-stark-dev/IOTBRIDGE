@@ -72,9 +72,9 @@
                       <!-- Controles do terminal -->
                       <HBox alignment="CENTER_RIGHT" spacing="6">
          <children>
-                             <Button style="                         -fx-background-color: #333;                         -fx-text-fill: #ccc;                         -fx-background-radius: 4;                         -fx-padding: 6 10;                         -fx-font-size: 10;                     " text="LIMPAR" />
-                             <Button style="                         -fx-background-color: #333;                         -fx-text-fill: #ccc;                         -fx-background-radius: 4;                         -fx-padding: 6 10;                         -fx-font-size: 10;                     " text="EXPORTAR" />
-                             <Button style="                         -fx-background-color: #333;                         -fx-text-fill: #ccc;                         -fx-background-radius: 4;                         -fx-padding: 6 10;                         -fx-font-size: 10;                     " text="PAUSAR" />
+                             <Button onAction="#clean" style="                         -fx-background-color: #333;                         -fx-text-fill: #ccc;                         -fx-background-radius: 4;                         -fx-padding: 6 10;                         -fx-font-size: 10;                     " text="LIMPAR" />
+                             <Button onAction="#export" style="                         -fx-background-color: #333;                         -fx-text-fill: #ccc;                         -fx-background-radius: 4;                         -fx-padding: 6 10;                         -fx-font-size: 10;                     " text="EXPORTAR" />
+                             <Button onAction="#pause" style="                         -fx-background-color: #333;                         -fx-text-fill: #ccc;                         -fx-background-radius: 4;                         -fx-padding: 6 10;                         -fx-font-size: 10;                     " text="PAUSAR" />
          </children>
                       </HBox>
                   </children>
